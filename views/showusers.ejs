@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All users</title>
+    <style>
+        table, th, td {
+            border: 1px, solid, purple;
+        }
+        th {
+            background-color: yellow;
+        }
+        td{
+            background-color: bisque;
+        }
+        #b1{
+            background-color: green;
+        }
+        #b2{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th colspan="2">Options</th>
+        </tr>
+        <%for( user of users ){%>
+            <tr>
+                <td><%=user.id%></td>
+                <td><%=user.username%></td>
+                <td><%=user.email%></td>
+                <td>
+                    <form method="GET" action="/user/<%=user.id%>/edit">
+                        <button id="b1">Edit Username</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="GET" action="/user/<%=user.id%>/delete">
+                        <button id="b2">Delete User</button>
+                    </form>
+                </td>
+            </tr>
+         <%}%>
+    </table>
+</body>
+</html>
